@@ -1,0 +1,492 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b2545"><meta name="description" content="Runnable classroom examples, synthetic telemetry, independent tests and a simulated AI adapter."><title>Python examples · Software Engineering in the AI Era · University of Nairobi</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/course.css"><script src="../assets/course.js" defer></script></head><body><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Course navigation"><a class="brand" href="../index.html">Software Engineering · AI Era</a><a href="../index.html#modules">Modules</a><a href="../index.html#documents">Course documents</a><a href="../examples/index.html">Python examples</a><a href="../index.html#ai-policy">AI policy</a></nav><header class="home"><span class="badge">Examples and activities</span><h1>Python examples<br><span>from calculation to evidence</span></h1><p class="sub">Use the same energy-monitoring case across the semester. Download, run, test and explain each part.</p></header><main id="main" class="reading"><section><h2>Start with a local Python environment</h2><p>Use an institution-approved Python 3 installation. These examples use the standard library, including SQLite. Download and extract the complete examples folder, then open a terminal in that folder.</p><p><a class="btn primary" href="../downloads/python-examples.zip" download>Download all Python examples</a> <a class="btn ghost" href="README.md">Original example guide</a></p><pre><code>python first_energy.py
+python energy.py
+python run_checks.py
+python csv_demo.py
+python sqlite_demo.py
+python retrieval_demo.py
+python advice_demo.py
+python benchmark_demo.py</code></pre><p>The first energy examples return 90 Wh. The formatter returns <code>Energy: 0.090 kWh</code>. Benchmark durations depend on your computer.</p><div class="callout">All telemetry and manual passages are invented classroom data. The AI adapter uses labelled local provider stubs; it does not call a live AI service or enforce a real network timeout. Try the task before consulting reference solutions.</div></section><section><h2>Examples through the seven modules</h2><article id="module-1" class="example-source"><h3>Module 1 · Foundations and the Python Bridge</h3><p>Build a checkable specification, trace an energy calculation and learn Python values, decisions, loops and functions. State the assumptions behind every result.</p><ul><li><a href="#file-first_energy-py">first_energy.py</a> — Start with a constant-power energy calculation.</li><li><a href="#file-energy-py">energy.py</a> — Validated energy functions and formatting.</li></ul><p><a href="../module-1.html#section-15">Open Module 1 labs and activities →</a></p></article><article id="module-2" class="example-source"><h3>Module 2 · Reliable Python Software</h3><p>Organise code, validate data and use Git to review changes. Develop independent tests, numerical checks and a systematic debugging process.</p><ul><li><a href="#file-energy-py">energy.py</a> — Validated energy functions and formatting.</li><li><a href="#file-test_energy-py">test_energy.py</a> — Independent checks for calculation contracts and boundaries.</li><li><a href="#file-csv_demo-py">csv_demo.py</a> — Validate and process the synthetic telemetry CSV.</li></ul><p><a href="../module-2.html#section-13">Open Module 2 labs and activities →</a></p></article><article id="module-3" class="example-source"><h3>Module 3 · AI-Assisted Development and Evaluation</h3><p>Direct assistants and coding agents with bounded tasks and relevant context. Review generated code and compare workflows using independent evidence.</p><ul><li><a href="#file-energy-py">energy.py</a> — Validated energy functions and formatting.</li><li><a href="#file-test_energy-py">test_energy.py</a> — Independent checks for calculation contracts and boundaries.</li></ul><p><a href="../module-3.html#section-16">Open Module 3 labs and activities →</a></p></article><article id="module-4" class="example-source"><h3>Module 4 · Architecture, Data and AI Integration</h3><p>Design clear interfaces, query telemetry with SQL and connect retrieval to a replaceable AI adapter. Evaluate outputs, permissions and failure behaviour.</p><ul><li><a href="#file-sqlite_demo-py">sqlite_demo.py</a> — Query telemetry using an in-memory SQLite database.</li><li><a href="#file-retrieval_demo-py">retrieval_demo.py</a> — A small lexical retriever, including a deliberate synonym miss.</li><li><a href="#file-advice_demo-py">advice_demo.py</a> — A labelled provider stub with validation and fallback behaviour.</li></ul><p><a href="../module-4.html#section-18">Open Module 4 labs and activities →</a></p></article><article id="module-5" class="example-source"><h3>Module 5 · Collaborative Delivery and Operation</h3><p>Work in small reviewed changes, run a repeatable quality gate and prepare reproducible releases. Practise monitoring, incident response and recovery.</p><ul><li><a href="#file-run_checks-py">run_checks.py</a> — Run the repeatable local quality gate.</li><li><a href="#file-test_integration-py">test_integration.py</a> — Check data, retrieval, adapter and benchmark behaviour.</li></ul><p><a href="../module-5.html#section-13">Open Module 5 labs and activities →</a></p></article><article id="module-6" class="example-source"><h3>Module 6 · Security, Performance and Empirical Evidence</h3><p>Threat-model an AI application, test its trust boundaries and measure performance. Interpret latency, cost, uncertainty and comparative results.</p><ul><li><a href="#file-advice_demo-py">advice_demo.py</a> — A labelled provider stub with validation and fallback behaviour.</li><li><a href="#file-benchmark_demo-py">benchmark_demo.py</a> — Measure local latency and calculate the p95 statistic.</li><li><a href="#file-test_integration-py">test_integration.py</a> — Check data, retrieval, adapter and benchmark behaviour.</li></ul><p><a href="../module-6.html#section-15">Open Module 6 labs and activities →</a></p></article><article id="module-7" class="example-source"><h3>Module 7 · Capstone, Research and Synthesis</h3><p>Release a reproducible engineering project, defend the evidence and explain your contribution. Prepare for research critique and the final examination.</p><ul><li><a href="#file-run_checks-py">run_checks.py</a> — Run the repeatable local quality gate.</li></ul><p><a href="../module-7.html#section-14">Open Module 7 labs and activities →</a></p></article></section><section><h2>Read and download the source files</h2><p>Download the complete examples ZIP to keep imports and data together. You can also inspect or download individual files below.</p><article class="example-source" id="file-first_energy-py"><h3>first_energy.py</h3><p>Start with a constant-power energy calculation.</p><div class="code-actions"><a class="download" href="first_energy.py" download>Download first_energy.py</a><button class="copy-code" data-code="code-first_energy-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View first_energy.py</summary><pre><code id="code-first_energy-py">&quot;&quot;&quot;Module 1 fixed-input demonstration, not a general validator.&quot;&quot;&quot;
+powers_W = [60.0, 120.0, 0.0]
+interval_min = 30.0
+energy_Wh = sum(powers_W) * interval_min / 60.0
+print(&quot;Energy (Wh):&quot;, energy_Wh)
+</code></pre></details></article><article class="example-source" id="file-energy-py"><h3>energy.py</h3><p>Validated energy functions and formatting.</p><div class="code-actions"><a class="download" href="energy.py" download>Download energy.py</a><button class="copy-code" data-code="code-energy-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View energy.py</summary><pre><code id="code-energy-py">&quot;&quot;&quot;Reference interval-energy implementation for Modules 1 and 2.
+
+Each reading is a non-negative interval-average power in watts.
+All intervals have the same strictly positive duration in minutes.
+The function accepts a nonempty list of built-in int/float values,
+rejects booleans and non-finite values, and never mutates the input.
+&quot;&quot;&quot;
+
+import math
+
+
+def finite_number(value, label):
+    if type(value) not in (int, float):
+        raise ValueError(f&quot;{label} must be an int or float, not a boolean&quot;)
+    try:
+        number = float(value)
+    except (OverflowError, ValueError) as exc:
+        raise ValueError(f&quot;{label} must fit the finite numeric range&quot;) from exc
+    if not math.isfinite(number):
+        raise ValueError(f&quot;{label} must be finite&quot;)
+    return number
+
+
+def interval_energy_Wh(powers_W, interval_min):
+    &quot;&quot;&quot;Return finite energy in Wh; raise ValueError for invalid input.
+
+    This readable implementation creates a validated copy: O(n) time
+    and O(n) additional memory. It does not model instantaneous samples,
+    signed export power, variable intervals or measurement uncertainty.
+    &quot;&quot;&quot;
+    if not isinstance(powers_W, list) or not powers_W:
+        raise ValueError(&quot;powers_W must be a nonempty list&quot;)
+    duration = finite_number(interval_min, &quot;interval_min&quot;)
+    if duration &lt;= 0:
+        raise ValueError(&quot;interval_min must be positive&quot;)
+    validated = []
+    for index, raw in enumerate(powers_W):
+        value = finite_number(raw, f&quot;power at index {index}&quot;)
+        if value &lt; 0:
+            raise ValueError(&quot;negative power is outside this model&quot;)
+        validated.append(value)
+    try:
+        result = math.fsum(validated) * (duration / 60.0)
+    except OverflowError as exc:
+        raise ValueError(&quot;calculation exceeds the finite numeric range&quot;) from exc
+    if not math.isfinite(result):
+        raise ValueError(&quot;calculation exceeds the finite numeric range&quot;)
+    return result
+
+
+def format_kWh(energy_Wh):
+    &quot;&quot;&quot;Format a finite non-negative Wh value in kWh to three decimals.&quot;&quot;&quot;
+    value = finite_number(energy_Wh, &quot;energy_Wh&quot;)
+    if value &lt; 0:
+        raise ValueError(&quot;energy_Wh must be non-negative&quot;)
+    return f&quot;Energy: {value / 1000.0:.3f} kWh&quot;
+
+
+if __name__ == &quot;__main__&quot;:
+    energy = interval_energy_Wh([60.0, 120.0, 0.0], 30.0)
+    print(f&quot;Energy: {energy:.2f} Wh&quot;)
+    print(format_kWh(energy))
+</code></pre></details></article><article class="example-source" id="file-test_energy-py"><h3>test_energy.py</h3><p>Independent checks for calculation contracts and boundaries.</p><div class="code-actions"><a class="download" href="test_energy.py" download>Download test_energy.py</a><button class="copy-code" data-code="code-test_energy-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View test_energy.py</summary><pre><code id="code-test_energy-py">&quot;&quot;&quot;Independent examples and contract checks; run with unittest.&quot;&quot;&quot;
+import unittest
+from energy import interval_energy_Wh, format_kWh
+
+
+class EnergyTests(unittest.TestCase):
+    def test_hand_calculated_cases(self):
+        cases = [([60, 120, 0], 30, 90), ([100, 200], 15, 75),
+                 ([30, 90], 20, 40), ([0], 10, 0)]
+        for powers, duration, expected in cases:
+            with self.subTest(powers=powers, duration=duration):
+                self.assertAlmostEqual(interval_energy_Wh(powers, duration), expected)
+
+    def test_invalid_readings(self):
+        for values in ([], [-1], [True], [None], [&quot;60&quot;],
+                       [float(&quot;nan&quot;)], [float(&quot;inf&quot;)], [10**400]):
+            with self.subTest(values=values):
+                with self.assertRaises(ValueError):
+                    interval_energy_Wh(values, 30)
+
+    def test_invalid_container(self):
+        for values in (None, &quot;60&quot;, 60, (60,)):
+            with self.subTest(values=values):
+                with self.assertRaises(ValueError):
+                    interval_energy_Wh(values, 30)
+
+    def test_invalid_duration(self):
+        for value in (0, -1, True, None, &quot;30&quot;, float(&quot;inf&quot;), float(&quot;nan&quot;)):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    interval_energy_Wh([60], value)
+
+    def test_no_mutation(self):
+        original = [120, 0, 60]
+        interval_energy_Wh(original, 30)
+        self.assertEqual(original, [120, 0, 60])
+
+    def test_scaling_and_concatenation(self):
+        a, b = [10, 20], [30, 40]
+        base = interval_energy_Wh(a, 15)
+        self.assertAlmostEqual(interval_energy_Wh([2*x for x in a], 15), 2*base)
+        self.assertAlmostEqual(interval_energy_Wh(a+b, 15),
+                               base + interval_energy_Wh(b, 15))
+
+    def test_overflow_rejected(self):
+        with self.assertRaises(ValueError):
+            interval_energy_Wh([1e308, 1e308], 60)
+
+    def test_format(self):
+        self.assertEqual(format_kWh(90), &quot;Energy: 0.090 kWh&quot;)
+        self.assertEqual(format_kWh(0), &quot;Energy: 0.000 kWh&quot;)
+        for value in (-1, True, float(&quot;nan&quot;)):
+            with self.assertRaises(ValueError):
+                format_kWh(value)
+
+
+if __name__ == &quot;__main__&quot;:
+    unittest.main(verbosity=2)
+</code></pre></details></article><article class="example-source" id="file-csv_demo-py"><h3>csv_demo.py</h3><p>Validate and process the synthetic telemetry CSV.</p><div class="code-actions"><a class="download" href="csv_demo.py" download>Download csv_demo.py</a><button class="copy-code" data-code="code-csv_demo-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View csv_demo.py</summary><pre><code id="code-csv_demo-py">&quot;&quot;&quot;Module 2 optional input-boundary example for the supplied CSV.
+
+This narrow loader requires one device, equal intervals and the exact
+four-column schema. It does not validate timestamp syntax or completeness.
+Those are explicit extensions, not silently assumed capabilities.
+&quot;&quot;&quot;
+import csv
+from pathlib import Path
+from energy import interval_energy_Wh
+
+
+def energy_from_csv(path):
+    expected = [&quot;device_id&quot;, &quot;timestamp_utc&quot;, &quot;power_W&quot;, &quot;interval_min&quot;]
+    with open(path, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as stream:
+        reader = csv.DictReader(stream)
+        if reader.fieldnames != expected:
+            raise ValueError(&quot;CSV fields do not match the required schema&quot;)
+        powers, intervals, devices, timestamps = [], [], set(), set()
+        for row_number, row in enumerate(reader, start=2):
+            if None in row or any(row.get(key) in (None, &quot;&quot;) for key in expected):
+                raise ValueError(f&quot;malformed record at row {row_number}&quot;)
+            identity = (row[&quot;device_id&quot;], row[&quot;timestamp_utc&quot;])
+            if identity in timestamps:
+                raise ValueError(f&quot;duplicate timestamp at row {row_number}&quot;)
+            timestamps.add(identity)
+            devices.add(row[&quot;device_id&quot;])
+            try:
+                powers.append(float(row[&quot;power_W&quot;]))
+                intervals.append(float(row[&quot;interval_min&quot;]))
+            except ValueError as exc:
+                raise ValueError(f&quot;non-numeric value at row {row_number}&quot;) from exc
+    if not powers or len(devices) != 1 or len(set(intervals)) != 1:
+        raise ValueError(&quot;require nonempty data for one device and equal intervals&quot;)
+    return interval_energy_Wh(powers, intervals[0])
+
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;Energy from CSV (Wh):&quot;, energy_from_csv(Path(__file__).with_name(&quot;telemetry.csv&quot;)))
+</code></pre></details></article><article class="example-source" id="file-sqlite_demo-py"><h3>sqlite_demo.py</h3><p>Query telemetry using an in-memory SQLite database.</p><div class="code-actions"><a class="download" href="sqlite_demo.py" download>Download sqlite_demo.py</a><button class="copy-code" data-code="code-sqlite_demo-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View sqlite_demo.py</summary><pre><code id="code-sqlite_demo-py">&quot;&quot;&quot;Module 4 local in-memory database; no persistent files are changed.&quot;&quot;&quot;
+import sqlite3
+from contextlib import closing
+from energy import interval_energy_Wh
+
+
+def make_database():
+    connection = sqlite3.connect(&quot;:memory:&quot;)
+    connection.execute(&quot;PRAGMA foreign_keys = ON&quot;)
+    connection.executescript(&quot;&quot;&quot;
+        CREATE TABLE devices (
+            device_id TEXT PRIMARY KEY,
+            description TEXT NOT NULL
+        );
+        CREATE TABLE readings (
+            device_id TEXT NOT NULL REFERENCES devices(device_id),
+            timestamp_utc TEXT NOT NULL,
+            power_W REAL NOT NULL CHECK(power_W &gt;= 0),
+            interval_min REAL NOT NULL CHECK(interval_min &gt; 0),
+            PRIMARY KEY(device_id, timestamp_utc)
+        );
+    &quot;&quot;&quot;)
+    connection.execute(&quot;INSERT INTO devices VALUES (?, ?)&quot;,
+                       (&quot;motor_1&quot;, &quot;Invented classroom motor&quot;))
+    connection.executemany(&quot;INSERT INTO readings VALUES (?, ?, ?, ?)&quot;, [
+        (&quot;motor_1&quot;, &quot;2026-09-01T00:00:00Z&quot;, 60.0, 30.0),
+        (&quot;motor_1&quot;, &quot;2026-09-01T00:30:00Z&quot;, 120.0, 30.0),
+        (&quot;motor_1&quot;, &quot;2026-09-01T01:00:00Z&quot;, 0.0, 30.0),
+    ])
+    connection.commit()
+    return connection
+
+
+def read_energy(connection, device_id):
+    rows = connection.execute(
+        &quot;SELECT power_W, interval_min FROM readings &quot;
+        &quot;WHERE device_id = ? ORDER BY timestamp_utc&quot;, (device_id,)
+    ).fetchall()
+    if not rows:
+        raise ValueError(&quot;no readings for that device&quot;)
+    durations = {row[1] for row in rows}
+    if len(durations) != 1:
+        raise ValueError(&quot;this example requires equal intervals&quot;)
+    return interval_energy_Wh([row[0] for row in rows], rows[0][1])
+
+
+if __name__ == &quot;__main__&quot;:
+    with closing(make_database()) as connection:
+        print(&quot;Energy (Wh):&quot;, read_energy(connection, &quot;motor_1&quot;))
+        try:
+            read_energy(connection, &quot;unknown&quot;)
+        except ValueError as exc:
+            print(&quot;Expected rejection:&quot;, exc)
+</code></pre></details></article><article class="example-source" id="file-retrieval_demo-py"><h3>retrieval_demo.py</h3><p>A small lexical retriever, including a deliberate synonym miss.</p><div class="code-actions"><a class="download" href="retrieval_demo.py" download>Download retrieval_demo.py</a><button class="copy-code" data-code="code-retrieval_demo-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View retrieval_demo.py</summary><pre><code id="code-retrieval_demo-py">&quot;&quot;&quot;Module 4 lexical retrieval over invented passages, not a real manual.
+
+Jaccard word overlap is transparent but weak: no stemming, embeddings,
+synonym handling or learned relevance. Never use these passages as
+instructions for actual equipment.
+&quot;&quot;&quot;
+import re
+
+PASSAGES = {
+    &quot;manual_motor_v1_p1&quot;: &quot;Motor energy uses interval average power in watts.&quot;,
+    &quot;manual_motor_v1_p2&quot;: &quot;For simulated motor overheating, inspect ventilation.&quot;,
+    &quot;manual_network_v1_p1&quot;: &quot;For network timeout, inspect the simulated connection.&quot;,
+}
+
+
+def tokens(text):
+    return set(re.findall(r&quot;[a-z0-9]+&quot;, text.lower()))
+
+
+def retrieve(query, k=2):
+    if not isinstance(query, str) or not query.strip():
+        raise ValueError(&quot;query must be nonempty text&quot;)
+    if type(k) is not int or k &lt;= 0:
+        raise ValueError(&quot;k must be a positive integer&quot;)
+    query_words = tokens(query)
+    scored = []
+    for passage_id, passage in PASSAGES.items():
+        words = tokens(passage)
+        overlap = len(query_words &amp; words)
+        if overlap:
+            score = overlap / len(query_words | words)
+            scored.append((score, passage_id, passage))
+    return sorted(scored, key=lambda row: (-row[0], row[1]))[:k]
+
+
+def read_approved_passage(passage_id, allowed_ids):
+    &quot;&quot;&quot;A local tool boundary. No arbitrary paths or commands are accepted.&quot;&quot;&quot;
+    if passage_id not in allowed_ids or passage_id not in PASSAGES:
+        raise PermissionError(&quot;document is outside the allowed set&quot;)
+    return PASSAGES[passage_id]
+
+
+if __name__ == &quot;__main__&quot;:
+    for query in (&quot;motor overheating&quot;, &quot;network timeout&quot;, &quot;thermal blockage&quot;):
+        print(&quot;Query:&quot;, query)
+        matches = retrieve(query)
+        for score, passage_id, passage in matches:
+            print(f&quot;  {score:.3f} {passage_id}: {passage}&quot;)
+        if not matches:
+            print(&quot;  No lexical match; this does not prove no relevant passage exists.&quot;)
+</code></pre></details></article><article class="example-source" id="file-advice_demo-py"><h3>advice_demo.py</h3><p>A labelled provider stub with validation and fallback behaviour.</p><div class="code-actions"><a class="download" href="advice_demo.py" download>Download advice_demo.py</a><button class="copy-code" data-code="code-advice_demo-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View advice_demo.py</summary><pre><code id="code-advice_demo-py">&quot;&quot;&quot;Modules 4 to 6: response-contract validation with injected local stubs.
+
+No live model, SDK, network timeout or semantic grounding is tested here.
+The application keeps the independently calculated energy on failure.
+&quot;&quot;&quot;
+import json
+from energy import interval_energy_Wh
+
+ALLOWED_SOURCE_IDS = {&quot;manual_motor_v1_p2&quot;}
+FALLBACK = {&quot;status&quot;: &quot;unavailable&quot;, &quot;summary&quot;: &quot;Advice unavailable.&quot;,
+            &quot;source_ids&quot;: []}
+
+
+def validate_response(raw, allowed_ids):
+    if not isinstance(raw, str) or len(raw.encode(&quot;utf-8&quot;)) &gt; 4000:
+        raise ValueError(&quot;response must be text within the 4000-byte limit&quot;)
+    def reject_constant(value):
+        raise ValueError(f&quot;nonstandard JSON constant: {value}&quot;)
+    try:
+        data = json.loads(raw, parse_constant=reject_constant)
+    except (json.JSONDecodeError, RecursionError) as exc:
+        raise ValueError(&quot;response is not valid supported JSON&quot;) from exc
+    if not isinstance(data, dict) or set(data) != {&quot;status&quot;, &quot;summary&quot;, &quot;source_ids&quot;}:
+        raise ValueError(&quot;response fields do not match the schema&quot;)
+    if data[&quot;status&quot;] not in (&quot;advice&quot;, &quot;unavailable&quot;):
+        raise ValueError(&quot;unknown status&quot;)
+    if not isinstance(data[&quot;summary&quot;], str) or not (1 &lt;= len(data[&quot;summary&quot;]) &lt;= 500):
+        raise ValueError(&quot;summary must contain 1 to 500 characters&quot;)
+    ids = data[&quot;source_ids&quot;]
+    if not isinstance(ids, list) or not all(isinstance(x, str) for x in ids):
+        raise ValueError(&quot;source_ids must be a list of strings&quot;)
+    if len(ids) != len(set(ids)) or not set(ids).issubset(allowed_ids):
+        raise ValueError(&quot;source IDs must be unique and authorised&quot;)
+    if data[&quot;status&quot;] == &quot;advice&quot; and not ids:
+        raise ValueError(&quot;advice must identify supporting sources&quot;)
+    if data[&quot;status&quot;] == &quot;unavailable&quot; and ids:
+        raise ValueError(&quot;unavailable responses must have no source IDs&quot;)
+    return data
+
+
+def make_report(provider):
+    energy = interval_energy_Wh([60.0, 120.0, 0.0], 30.0)
+    try:
+        advice = validate_response(provider(), ALLOWED_SOURCE_IDS)
+        event = &quot;advice_validated&quot; if advice[&quot;status&quot;] == &quot;advice&quot; else &quot;advice_unavailable&quot;
+    except TimeoutError:
+        advice = dict(FALLBACK)
+        event = &quot;advice_timeout&quot;
+    except ValueError:
+        advice = dict(FALLBACK)
+        event = &quot;advice_invalid_response&quot;
+    return {&quot;energy_Wh&quot;: energy, &quot;advice&quot;: advice, &quot;event&quot;: event,
+            &quot;release&quot;: &quot;classroom-v1&quot;, &quot;provider&quot;: &quot;local-stub&quot;}
+
+
+def good_stub():
+    return json.dumps({&quot;status&quot;: &quot;advice&quot;,
+                       &quot;summary&quot;: &quot;Inspect the simulated ventilation path.&quot;,
+                       &quot;source_ids&quot;: [&quot;manual_motor_v1_p2&quot;]})
+
+
+def invalid_stub():
+    return '{&quot;status&quot;: &quot;advice&quot;, &quot;summary&quot;: &quot;Missing source field&quot;}'
+
+
+def timeout_stub():
+    raise TimeoutError(&quot;simulated provider timeout&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    for provider in (good_stub, invalid_stub, timeout_stub):
+        print(json.dumps(make_report(provider), indent=2))
+</code></pre></details></article><article class="example-source" id="file-benchmark_demo-py"><h3>benchmark_demo.py</h3><p>Measure local latency and calculate the p95 statistic.</p><div class="code-actions"><a class="download" href="benchmark_demo.py" download>Download benchmark_demo.py</a><button class="copy-code" data-code="code-benchmark_demo-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View benchmark_demo.py</summary><pre><code id="code-benchmark_demo-py">&quot;&quot;&quot;Module 6: actual local timings; synthetic data; no external provider.&quot;&quot;&quot;
+import math
+import statistics
+from time import perf_counter
+from energy import interval_energy_Wh
+
+
+def nearest_rank(values, fraction):
+    if not values or not 0 &lt; fraction &lt;= 1:
+        raise ValueError(&quot;nonempty values and fraction in (0, 1] required&quot;)
+    return sorted(values)[math.ceil(fraction * len(values)) - 1]
+
+
+def measure(repeats=40):
+    if type(repeats) is not int or repeats &lt; 20:
+        raise ValueError(&quot;use at least 20 repeats in this demonstration&quot;)
+    powers = [60.0, 120.0, 0.0] * 1000
+    expected = 90000.0
+    # Warm up outside the measured runs; report this choice.
+    if not math.isclose(interval_energy_Wh(powers, 30), expected):
+        raise RuntimeError(&quot;baseline correctness check failed&quot;)
+    observations = []
+    for _ in range(repeats):
+        start = perf_counter()
+        result = interval_energy_Wh(powers, 30)
+        observations.append((perf_counter() - start) * 1000)
+        if not math.isclose(result, expected):
+            raise RuntimeError(&quot;measured result failed correctness check&quot;)
+    return observations
+
+
+if __name__ == &quot;__main__&quot;:
+    values = measure()
+    print(&quot;Local deterministic calculation, 3000 readings, one warm-up run&quot;)
+    print(&quot;All observed durations in ms:&quot;, &quot;, &quot;.join(f&quot;{x:.4f}&quot; for x in values))
+    print(f&quot;Median: {statistics.median(values):.4f} ms&quot;)
+    print(f&quot;Nearest-rank p95: {nearest_rank(values, 0.95):.4f} ms&quot;)
+    print(&quot;These observations describe this machine and run only.&quot;)
+</code></pre></details></article><article class="example-source" id="file-test_integration-py"><h3>test_integration.py</h3><p>Check data, retrieval, adapter and benchmark behaviour.</p><div class="code-actions"><a class="download" href="test_integration.py" download>Download test_integration.py</a><button class="copy-code" data-code="code-test_integration-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View test_integration.py</summary><pre><code id="code-test_integration-py">import json
+import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from csv_demo import energy_from_csv
+from contextlib import closing
+from advice_demo import make_report, good_stub, invalid_stub, timeout_stub, validate_response
+from retrieval_demo import retrieve, read_approved_passage
+from sqlite_demo import make_database, read_energy
+from benchmark_demo import nearest_rank
+
+
+class IntegrationTests(unittest.TestCase):
+    def test_csv_and_rejection(self):
+        sample = Path(__file__).with_name(&quot;telemetry.csv&quot;)
+        self.assertEqual(energy_from_csv(sample), 90.0)
+        with TemporaryDirectory() as folder:
+            invalid = Path(folder) / &quot;bad.csv&quot;
+            invalid.write_text(sample.read_text().replace(
+                &quot;00:30:00Z,120,30&quot;, &quot;00:30:00Z,unknown,30&quot;), encoding=&quot;utf-8&quot;)
+            with self.assertRaises(ValueError):
+                energy_from_csv(invalid)
+
+    def test_sqlite_calculation(self):
+        with closing(make_database()) as connection:
+            self.assertEqual(read_energy(connection, &quot;motor_1&quot;), 90.0)
+            with self.assertRaises(ValueError):
+                read_energy(connection, &quot;unknown&quot;)
+
+    def test_query_value_is_not_sql(self):
+        with closing(make_database()) as connection:
+            with self.assertRaises(ValueError):
+                read_energy(connection, &quot;' OR 1=1 --&quot;)
+            self.assertEqual(read_energy(connection, &quot;motor_1&quot;), 90.0)
+
+    def test_retrieval_and_miss(self):
+        self.assertEqual(retrieve(&quot;motor overheating&quot;)[0][1], &quot;manual_motor_v1_p2&quot;)
+        self.assertEqual(retrieve(&quot;thermal blockage&quot;), [])
+
+    def test_tool_authorisation(self):
+        allowed = {&quot;manual_motor_v1_p2&quot;}
+        self.assertIn(&quot;ventilation&quot;, read_approved_passage(&quot;manual_motor_v1_p2&quot;, allowed))
+        with self.assertRaises(PermissionError):
+            read_approved_passage(&quot;private_file&quot;, allowed)
+
+    def test_valid_advice(self):
+        result = make_report(good_stub)
+        self.assertEqual(result[&quot;energy_Wh&quot;], 90.0)
+        self.assertEqual(result[&quot;advice&quot;][&quot;status&quot;], &quot;advice&quot;)
+
+    def test_failure_preserves_energy(self):
+        for provider, event in [(invalid_stub, &quot;advice_invalid_response&quot;),
+                                (timeout_stub, &quot;advice_timeout&quot;)]:
+            with self.subTest(provider=provider.__name__):
+                result = make_report(provider)
+                self.assertEqual(result[&quot;energy_Wh&quot;], 90.0)
+                self.assertEqual(result[&quot;advice&quot;][&quot;status&quot;], &quot;unavailable&quot;)
+                self.assertEqual(result[&quot;event&quot;], event)
+
+    def test_unknown_source_rejected(self):
+        raw = json.dumps({&quot;status&quot;: &quot;advice&quot;, &quot;summary&quot;: &quot;A claim&quot;,
+                          &quot;source_ids&quot;: [&quot;private_file&quot;]})
+        with self.assertRaises(ValueError):
+            validate_response(raw, {&quot;manual_motor_v1_p2&quot;})
+
+    def test_malformed_and_wrong_types(self):
+        for raw in (&quot;not json&quot;, &quot;[]&quot;, '{&quot;status&quot;: NaN}', &quot;x&quot; * 4001,
+                    '{&quot;status&quot;:&quot;advice&quot;,&quot;summary&quot;:3,&quot;source_ids&quot;:[]}'):
+            with self.subTest(raw=raw[:40]):
+                with self.assertRaises(ValueError):
+                    validate_response(raw, set())
+
+    def test_schema_does_not_establish_truth(self):
+        raw = json.dumps({&quot;status&quot;: &quot;advice&quot;, &quot;summary&quot;: &quot;A false claim can fit a schema.&quot;,
+                          &quot;source_ids&quot;: [&quot;manual_motor_v1_p2&quot;]})
+        # This passes structurally. Human grounding review is still required.
+        self.assertEqual(validate_response(raw, {&quot;manual_motor_v1_p2&quot;})[&quot;status&quot;], &quot;advice&quot;)
+
+    def test_quantile_convention(self):
+        self.assertEqual(nearest_rank(list(range(1, 21)), 0.95), 19)
+        with self.assertRaises(ValueError):
+            nearest_rank([], 0.95)
+
+
+if __name__ == &quot;__main__&quot;:
+    unittest.main(verbosity=2)
+</code></pre></details></article><article class="example-source" id="file-run_checks-py"><h3>run_checks.py</h3><p>Run the repeatable local quality gate.</p><div class="code-actions"><a class="download" href="run_checks.py" download>Download run_checks.py</a><button class="copy-code" data-code="code-run_checks-py" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View run_checks.py</summary><pre><code id="code-run_checks-py">&quot;&quot;&quot;Local quality gate. A failing compile or test yields a nonzero status.&quot;&quot;&quot;
+from pathlib import Path
+import sys
+import unittest
+
+
+def main():
+    directory = Path(__file__).resolve().parent
+    for path in sorted(directory.glob(&quot;*.py&quot;)):
+        compile(path.read_text(encoding=&quot;utf-8&quot;), str(path), &quot;exec&quot;)
+    print(&quot;All example Python files compile.&quot;, flush=True)
+    suite = unittest.defaultTestLoader.discover(str(directory), pattern=&quot;test_*.py&quot;)
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    return 0 if result.wasSuccessful() else 1
+
+
+if __name__ == &quot;__main__&quot;:
+    sys.exit(main())
+</code></pre></details></article><article class="example-source" id="file-telemetry-csv"><h3>telemetry.csv</h3><p>Invented readings for the classroom examples.</p><div class="code-actions"><a class="download" href="telemetry.csv" download>Download telemetry.csv</a><button class="copy-code" data-code="code-telemetry-csv" type="button">Copy code</button><span class="code-status" role="status" aria-live="polite"></span></div><details><summary>View telemetry.csv</summary><pre><code id="code-telemetry-csv">device_id,timestamp_utc,power_W,interval_min
+motor_1,2026-09-01T00:00:00Z,60,30
+motor_1,2026-09-01T00:30:00Z,120,30
+motor_1,2026-09-01T01:00:00Z,0,30
+</code></pre></details></article></section><nav class="course-pager" aria-label="Course navigation"><a href="../index.html#modules">← All modules</a><a href="../course-outline.html#section-12">Tools and access →</a></nav></main><footer class="home"><p class="course">Software Engineering in the AI Era · 2026–2027</p><p>Dr. Davies Rene Segera · Department of Electrical &amp; Information Engineering<br>University of Nairobi · For educational use</p><p class="related">Related courses: <a href="https://daviessegera.github.io/fee3131/">Introduction to Computers</a> · <a href="https://daviessegera.github.io/introduction-to-programming/">Introduction to Programming</a></p><p><a href="../index.html">Course home</a></p></footer></body></html>

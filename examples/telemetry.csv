@@ -1,0 +1,4 @@
+device_id,timestamp_utc,power_W,interval_min
+motor_1,2026-09-01T00:00:00Z,60,30
+motor_1,2026-09-01T00:30:00Z,120,30
+motor_1,2026-09-01T01:00:00Z,0,30
